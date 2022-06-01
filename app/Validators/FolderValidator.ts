@@ -23,7 +23,10 @@ export default class FolderValidator {
    *     ])
    *    ```
    */
-  public schema = schema.create({})
+  public schema = schema.create({
+    name: schema.string([]),
+    parent: schema.string([]),
+  })
 
   /**
    * Custom messages for validation failures. You can make use of dot notation `(.)`
@@ -36,5 +39,7 @@ export default class FolderValidator {
    * }
    *
    */
-  public messages: CustomMessages = {}
+  public messages: CustomMessages = {
+    string: "{{ field }} doit être une chaîne de caractères.",
+  }
 }
